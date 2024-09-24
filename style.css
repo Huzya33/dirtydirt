@@ -412,7 +412,7 @@ button {
 
 #home>.accroche>div {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;   
     gap: 48px;
 }
 
@@ -464,6 +464,8 @@ form > button >img{
     gap: var(--spaceL)
 }
 
+/* View Item */
+
 /* Cart */
 
 #cart{
@@ -481,7 +483,9 @@ form > button >img{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 32px;
+    gap: var(--gapS);
+    padding: var(--spaceM);
+    background-color: var(--bgNeutral);
 }
 
 .inCart > .infos > div, .inCart > .infos > p:nth-child(even), .inCart > button {
@@ -494,13 +498,13 @@ form > button >img{
     width: 40vw;
     height: 128px;
     padding: 0;
-    background-color: white;
-    border: 1px solid var(--bgPrimary);
+    background-color: #00000000;
+    border: 1px solid #00000000;
+    border-bottom: 1px solid var(--bgPrimary);
 }
 
 .inCart > img {
     height: 64px;
-    background-color: white;
     padding: 32px;
 }
 
@@ -557,8 +561,9 @@ form > button >img{
     border-top: 2px solid var(--colorText);
 }
 
-/* About */
 
+
+/* About */
 
 
 /* Buy */
@@ -571,7 +576,7 @@ form > button >img{
 
 /* init */
 
-#shop, #cart, #about, #how, #buy{
+#shop, #cart, #about, #how, #buy, #viewItem{
     display: none;
 }
 

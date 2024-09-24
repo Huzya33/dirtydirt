@@ -1,5 +1,10 @@
 // ---------- ---------- Init()
 
+// random int
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 // items mis en vente
 function item(name, img, rate, price, description, tags) {
     return {
@@ -162,6 +167,7 @@ function addToCart() {
             addToCart.style.backgroundColor = "var(--colorSuccess)"
             setTimeout(() => { addToCart.style.backgroundColor = "var(--bgPrimaryHover)" }, 100)
             document.querySelector("header>ul>li>.cart").innerHTML = "<img src='Ressources/Icon/Cart.svg'><p>" + document.querySelectorAll(".inCart").length + "</p>"
+            IATalk("Bravo", "Votre artice a été ajouté ave succès au panier", "sucess")
         })
     }
 }
@@ -169,7 +175,7 @@ function addToCart() {
 // ---------- navigation
 // navigation entre sections
 function navigate() {
-    let destinations = ["home", "shop", "cart", "how", "about", "buy"]
+    let destinations = ["home", "shop", "viewItem", "cart", "how", "about", "buy"]
     let navButtons = document.querySelectorAll(".nav")
     for (let x = 0; x < navButtons.length; x++) {
 
@@ -203,6 +209,36 @@ function navigate() {
     }
 
 }
+// ouvrir l'aperçu de l'aticle
+function openViewItem() {
+    // generation de la page view
+    let cards = document.querySelectorAll(".item")
+    let view = document.querySelector("#viewItem")
+    console.log(cards)
+
+    for (let x = 0; x < cards.length; x++) {
+        let card = cards[x]
+        let image = card.querySelector("img")
+        image.addEventListener("click", () => {
+            view.innerHTML = "<div class='item view'>" + card.innerHTML + "</div>"
+
+            // navigation vers la page view
+            let toHide = ["home", "shop", "cart", "how", "about", "buy"]
+            for (let y = 0; y < toHide.length; y++) {
+                document.querySelector("#" + toHide[y]).setAttribute("style", "display: none;")
+            }
+            document.querySelector("#blank").setAttribute("style", "display: flex;")
+            setTimeout(() => {
+                document.querySelector("#viewItem").setAttribute("style", "display: flex;")
+                document.querySelector("#blank").setAttribute("style", "display: none;")
+            }, timer)
+
+            scrollTo({ left: 0, top: 0, behavior: "smooth" })
+        })
+    }
+
+}
+
 // navigation par bouton de scroll
 function buttonScroll() {
     // accroche
@@ -214,6 +250,27 @@ function buttonScroll() {
 // ---------- Cart
 // état vide du shop
 // calcul du résumé
+function calcResume() {
+    let sousTotal = 0
+    let delivery = true
+    let TVA = true
+    let total = 0 
+
+    let articles = document.querySelectorAll(".allInCart > .item")
+    // calcul sousTotal
+    /*
+    for (x = 0; x < articles.length; x++){
+        let article = articles[x]
+        article.querySelector("")
+
+        sousTotal += 
+    }
+    */
+    // calcul livraison
+    if (articles.length < 5){
+        delivery = getRandomInt(200)
+    }
+}
 
 
 // ---------- IA
@@ -223,7 +280,6 @@ function IALanding() {
         // animation avatar
         document.querySelector(".avatar>img").classList.replace("IAStatePop", "IAStateIn")
         document.querySelector(".avatar>div").classList.replace("IAStatePop", "IAStateIn")
-        console.log("coucou")
 
         // premier message
         setTimeout(() => {
@@ -234,54 +290,73 @@ function IALanding() {
 }
 // faire parler l'IA
 function IATalk(title = "", message = "", alert = "") {
-            let sentence = "<div class='message statePop" + alert + "'><button class='ghost dangerAction'><img src='Ressources/Icon/closeB.svg'></button>"
+    let sentence = "<div class='message statePop" + alert + "'><button class='ghost dangerAction'><img src='Ressources/Icon/closeB.svg'></button>"
 
-            if (title !== "") {
-                sentence += "<h3>" + title + "</h3>"
-            }
+    if (title !== "") {
+        sentence += "<h3>" + title + "</h3>"
+    }
 
-            if (message !== "") {
-                sentence += "<p>" + message + "</p>"
-            }
+    if (message !== "") {
+        sentence += "<p>" + message + "</p>"
+    }
 
-            sentence += "</div>"
-            document.querySelector("#IA > .conv").innerHTML += sentence
+    sentence += "</div>"
+    document.querySelector("#IA > .conv").innerHTML += sentence
 
-            // Animation avatar
-            document.querySelector(".avatar").querySelector("*").style.scale = "0.9"
-            setTimeout(() => {
-                document.querySelector(".avatar").querySelector("*").style.scale = "1"
+    // Animation avatar
+    document.querySelector(".avatar").querySelector("*").style.scale = "0.9"
+    setTimeout(() => {
+        document.querySelector(".avatar").querySelector("*").style.scale = "1"
 
-                // Animation apparition
-                setTimeout(() => {
-                    document.querySelectorAll(".statePop")[0].classList.replace("statePop", "stateIn")
-                    console.log(document.querySelector(".statePop"))
-                }, 500)
+        // Animation apparition
+        setTimeout(() => {
+            document.querySelectorAll(".statePop")[0].classList.replace("statePop", "stateIn")
+        }, 500)
 
-            }, 200)
+    }, 200)
 
-            closeMessage()
+    closeMessage()
 
 }
 // fermer un message
 function closeMessage() {
-            let messages = document.querySelectorAll(".message")
-            for (let x = 0; x < messages.length; x++) {
-                let closeButton = messages[x].querySelector("button")
-                closeButton.addEventListener("click", () => {
-                    setTimeout(() => { messages[x].classList.add("stateClosed") }
-                        , timer)
-                    setTimeout(() => { messages[x].remove() }
-                        , 500)
-                })
-            }
+    let messages = document.querySelectorAll(".message")
+    for (let x = 0; x < messages.length; x++) {
+        let closeButton = messages[x].querySelector("button")
+        // fermuture click
+        closeButton.addEventListener("click", () => {
+            setTimeout(() => { messages[x].classList.add("stateClosed") }
+                , timer)
+            setTimeout(() => { messages[x].remove() }
+                , 500)
+        })
+        // fermeture automatique
+        setTimeout(() => {
+            setTimeout(() => { messages[x].classList.add("stateClosed") }
+                , timer)
+            setTimeout(() => { messages[x].remove() }
+                , 500)
+        }, 5000 + timer)
+    }
+}
+function IAFlow() {
+    // toute les  10 secondes
+
+    // toute  
+}
+
+// ---------- Timer
+function timerGrow() {
+    document.addEventListener("click", () => {
+        timer += 25
+        console.log("timer is now : " + timer)
+    })
 }
 
 
 // ---------- ---------- Exe()
 
-// navigation
-navigate()
+// ---------- Generate
 
 // génération des articles
 generateItems()
@@ -292,15 +367,19 @@ addToCart()
 // appartition du chat
 IALanding()
 
+
+
+// ---------- Rules
+
+// Timer
+timerGrow()
+
+// navigation
+navigate()
+openViewItem()
+
 // ajouter les règles d'apparition de text
 
 // créer les bugs d'images
 
 //
-
-// Timer
-document.addEventListener("click", () => {
-            timer += 25
-            console.log("timer is now : " + timer)
-        })
-
