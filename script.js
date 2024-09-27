@@ -32,7 +32,7 @@ let allItems = [
         4,
         65,
         "Lorem ipsum dolor sit amet consectetur.",
-        ["bestSelling", "lastDrop"]
+        ["bestSelling", "lastDrop", "reco"]
     )
     ,
     new item(
@@ -50,7 +50,7 @@ let allItems = [
         4,
         65,
         "Lorem ipsum dolor sit amet consectetur.",
-        []
+        ["reco"]
     )
     ,
     new item(
@@ -77,7 +77,7 @@ let allItems = [
         4,
         65,
         "Lorem ipsum dolor sit amet consectetur.",
-        []
+        ["reco"]
     )
     ,
     new item(
@@ -104,7 +104,7 @@ let allItems = [
         4,
         65,
         "Lorem ipsum dolor sit amet consectetur.",
-        []
+        ["reco"]
     )
 ]
 
@@ -130,20 +130,25 @@ function generateItems() {
         let bestSelling = ""
         let lastDrop = ""
         let selling = ""
+        let reco = ""
 
         let item = allItems[x]
 
-        /* ajout à best selling */
+        // ajout à best selling
         if (item.tags.includes("bestSelling")) {
             bestSelling += "<div class='item'><img src='Ressources/Images/" + item.img + "'><div class='infos'><h2>" + item.name + "</h2><div><img src='Ressources/Icon/rating/" + item.rate + ".svg'><p class='light'>sur 361 avis</p></div><p>" + item.price + "$</p><p>" + item.description + "</p></div><button class='primary addCart'>ajouter au panier<img src='Ressources/Icon/PlusW.svg'></button></div>"
         }
 
-        /* ajout à last drop */
+        // ajout à last drop
         if (item.tags.includes("lastDrop")) {
             lastDrop += "<div class='item'><img src='Ressources/Images/" + item.img + "'><div class='infos'><h2>" + item.name + "</h2><div><img src='Ressources/Icon/rating/" + item.rate + ".svg'><p class='light'>sur 361 avis</p></div><p>" + item.price + "$</p><p>" + item.description + "</p></div><button class='primary addCart'>ajouter au panier<img src='Ressources/Icon/PlusW.svg'></button></div>"
         }
+        // ajout au recomandation
+        if (item.tags.includes("reco")) {
+            reco += "<div class='item'><img src='Ressources/Images/" + item.img + "'><div class='infos'><h2>" + item.name + "</h2><div><img src='Ressources/Icon/rating/" + item.rate + ".svg'><p class='light'>sur 361 avis</p></div><p>" + item.price + "$</p><p>" + item.description + "</p></div><button class='primary addCart'>ajouter au panier<img src='Ressources/Icon/PlusW.svg'></button></div>"
+        }
 
-        /* ajout à selling */
+        // ajout à selling
         selling += "<div class='item'><img src='Ressources/Images/" + item.img + "'><div class='infos'><h2>" + item.name + "</h2><div><img src='Ressources/Icon/rating/" + item.rate + ".svg'><p class='light'>sur 361 avis</p></div><p>" + item.price + "$</p><p>" + item.description + "</p></div><button class='primary addCart'>ajouter au panier<img src='Ressources/Icon/PlusW.svg'></button></div>"
 
 
@@ -151,6 +156,8 @@ function generateItems() {
         document.querySelector(".selling>.itemsList").innerHTML += selling
         document.querySelector(".bestSelling>.itemsList").innerHTML += bestSelling
         document.querySelector(".lastDrop>.itemsList").innerHTML += lastDrop
+        document.querySelector(".recommandation>.itemsList").innerHTML += reco
+
     }
 }
 // add to cart

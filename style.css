@@ -1,5 +1,7 @@
-:root{
+:root {
     --colorTitre: #1E293B;
+    --colorCTA: #64748B;
+    --colorCTAHover: #1E293B;
     --colorText: #94A3B8;
     --colorTitreDark: #F8FAFC;
     --colorTextDark: #CBD5E1;
@@ -13,7 +15,7 @@
     --bgNone: white;
     --bgNeutral: #F8FAFC;
     --bgNeuralHover: #F1F5F9;
-    --bgPrimary : #94A3B8;
+    --bgPrimary: #94A3B8;
     --bgPrimaryHover: #1E293B;
 
     --gapXL: 96px;
@@ -31,8 +33,7 @@
     --radS: 16px;
     --radRound: 1000px;
 
-    --IASpace : var(--spaceM)
-
+    --IASpace: var(--spaceM)
 }
 
 * {
@@ -64,10 +65,16 @@ body {
 
 /* ----- Text ----- */
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--colorTitre);
 
 }
+
 h1 {
     font-size: 8vw;
     line-height: 10vw;
@@ -128,7 +135,7 @@ header>ul>li {
     list-style: none;
 }
 
-header>ul>li>.cart>p{
+header>ul>li>.cart>p {
     height: 16px;
     border-radius: 1000px;
     width: auto;
@@ -143,13 +150,13 @@ header>ul>li>.cart>p{
 
 /* ----- Footer ----- */
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     width: 100vw;
 }
 
-footer > div{
+footer>div {
     background-color: black;
     padding: 96px;
     display: flex;
@@ -163,25 +170,25 @@ footer > div{
     gap: 48px;
 }
 
-.footList > div {
+.footList>div {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.footInfos{
+.footInfos {
     padding-left: 512px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.footInfos > img {
-height: 256px;
+.footInfos>img {
+    height: 256px;
 }
 
 
-footer > hgroup{
+footer>hgroup {
     display: flex;
     flex-direction: row;
     padding: 24px 96px 24px 96px;
@@ -191,37 +198,37 @@ footer > hgroup{
 
 /* ----- IA ----- */
 
-.IAStatePop{
+.IAStatePop {
     opacity: 0%;
     scale: 0.5;
     transform: translateX(100%);
 }
 
-.IAStateIn{
+.IAStateIn {
     opacity: 100%;
     scale: 1;
     transform: translateX(0);
 }
 
-#IA{
+#IA {
     position: fixed;
-    bottom : var(--IASpace);
+    bottom: var(--IASpace);
     right: var(--IASpace);
     z-index: 10;
     transition: all 150ms ease-in-out;
 }
 
-#IA > .avatar{
+#IA>.avatar {
     width: var(--spaceL);
     height: var(--spaceL);
     padding: var(--spaceS);
     position: fixed;
-    bottom : var(--IASpace);
+    bottom: var(--IASpace);
     right: var(--IASpace);
     z-index: 10;
 }
 
-#IA > .avatar > img{
+#IA>.avatar>img {
     width: var(--spaceL);
     height: var(--spaceL);
     z-index: 10;
@@ -230,9 +237,9 @@ footer > hgroup{
 
 }
 
-#IA > .avatar > div{
+#IA>.avatar>div {
     position: fixed;
-    bottom : var(--IASpace);
+    bottom: var(--IASpace);
     right: var(--IASpace);
     z-index: -1;
     width: var(--spaceL);
@@ -246,10 +253,10 @@ footer > hgroup{
 
 }
 
-#IA > .conv {
+#IA>.conv {
     position: fixed;
     bottom: calc(var(--IASpace)*2 + var(--spaceL) + var(--gapM));
-    right:var(--IASpace);
+    right: var(--IASpace);
 
     display: flex;
     flex-direction: column;
@@ -258,7 +265,7 @@ footer > hgroup{
 
 }
 
-#IA > .conv > .message {
+#IA>.conv>.message {
     background-color: var(--bgNeutral);
     padding: 0 var(--gapL) var(--gapL) var(--gapL);
     max-width: calc(128px * 4);
@@ -273,27 +280,27 @@ footer > hgroup{
 
 }
 
-#IA > .conv > .message > button {
+#IA>.conv>.message>button {
     position: relative;
-    top:0px;
-    left:-48px;
+    top: 0px;
+    left: -48px;
     border-radius: var(--radS);
 }
 
-.statePop{
+.statePop {
     transform: translateY(100%);
     opacity: 0%;
     display: none;
 }
 
-.stateIn{
+.stateIn {
     transform: translateX(0);
     transform: translateY(0);
     opacity: 100%;
     display: flex;
 }
 
-.stateClosed{
+.stateClosed {
     transform: translateX(100%);
     opacity: 0%;
     display: none;
@@ -312,22 +319,34 @@ button {
     gap: 8px;
     padding: 12px 16px 12px 16px;
     transition: all 150ms ease-in-out;
+    color: var(--colorCTA);
 }
 
-.dangerAction:hover{
+.dangerAction:hover {
     background-color: var(--colorDangerSoft);
 }
-.ghost:hover{
-    text-decoration: underline;
+
+.ghost:hover {
+    color: var(--colorCTAHover);
 }
 
-.primary{
-    background-color: #1E293B;
+.primary {
+    background-color: var(--colorCTA);
     color: #F8FAFC;
 }
 
-.primary:hover{
-    background-color: #020617;
+.primary:hover {
+    background-color: var(--colorCTAHover);
+}
+
+.secondary {
+    border: var(--colorCTA) 1.5px solid;
+    color: var(--colorCTA);
+}
+
+.secondary:hover {
+    border: var(--colorCTAHover) 1.5px solid;
+    color: var(--colorCTAHover);
 }
 
 .dark {
@@ -341,7 +360,7 @@ button {
 
 }
 
-.L > img {
+.L>img {
     height: 24px;
 }
 
@@ -350,14 +369,14 @@ button {
 .item {
     display: flex;
     flex-direction: column;
-    width: 16vw;
+    width: calc(calc(90vw - var(--spaceM) *3) / 7);
     background-color: var(--bgNeutral);
     padding: 48px;
     gap: 48px;
     transition: all 150ms ease-in-out;
 }
 
-.item:hover{
+.item:hover {
     background-color: var(--bgNeuralHover);
 }
 
@@ -377,12 +396,12 @@ button {
     height: 16px;
 }
 
-.item > button{
+.item>button {
     width: 100%;
     justify-content: center;
 }
 
-.item > button:hover{
+.item>button:hover {
     gap: var(--gapM);
 }
 
@@ -412,7 +431,7 @@ button {
 
 #home>.accroche>div {
     display: flex;
-    flex-direction: row;   
+    flex-direction: row;
     gap: 48px;
 }
 
@@ -439,7 +458,7 @@ input {
     font-size: 20px;
 }
 
-form > button {
+form>button {
     background-color: rgb(221, 224, 255);
     width: 68px;
     display: flex;
@@ -448,27 +467,78 @@ form > button {
     border-radius: 10000px;
 }
 
-form > button >img{
+form>button>img {
     height: 60%;
 }
 
 /* Shop */
 
-#shop > img{
+#shop>img {
     object-fit: cover;
     height: 256px;
     width: 90vw;
 }
-#shop{
+
+#shop {
     flex-direction: column;
     gap: var(--spaceL)
 }
 
 /* View Item */
 
+.productSheet {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-between;
+    height: 100vh;
+    width: calc(90vw - var(--spaceL)*2);
+    background-color: var(--bgNeutral);
+    padding: var(--spaceL);
+}
+
+.productSheet>.gallery {
+    width: 60%;
+    display: grid;
+    grid-gap: var(--spaceM);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.gallery>img {
+    border: #020617 solid 1px;
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery>img:nth-child(even) {
+    width: 60%;
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+}
+
+.productSheet>.productResume {
+    width: 30%;
+}
+.productResume{
+    display: flex;
+    flex-direction: column;
+    gap:var(--gapM);
+}
+.productResume>.cartAction{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spaceS);
+}
+
+.productResume>.parametres>div{
+    display: flex;
+    flex-direction: row;
+}
+
 /* Cart */
 
-#cart{
+#cart {
     width: calc(90vw - var(--spaceL));
     display: flex;
     flex-direction: row;
@@ -488,7 +558,9 @@ form > button >img{
     background-color: var(--bgNeutral);
 }
 
-.inCart > .infos > div, .inCart > .infos > p:nth-child(even), .inCart > button {
+.inCart>.infos>div,
+.inCart>.infos>p:nth-child(even),
+.inCart>button {
     display: none;
 }
 
@@ -503,34 +575,36 @@ form > button >img{
     border-bottom: 1px solid var(--bgPrimary);
 }
 
-.inCart > img {
+.inCart>img {
     height: 64px;
     padding: 32px;
 }
 
-.inCart > .infos{
+.inCart>.infos {
     flex-direction: row;
     gap: 64px;
     align-items: center;
     width: auto;
 }
-.inCart > .infos > h2{
+
+.inCart>.infos>h2 {
     width: 20vw;
 }
-.inCart > .infos > p{
-    width: 5vw;
-}   
 
-.inCart > .infos > p{
+.inCart>.infos>p {
+    width: 5vw;
+}
+
+.inCart>.infos>p {
     font-size: 24px;
 }
 
-.inCart:hover{
+.inCart:hover {
     border: 1px solid var(--bgPrimaryHover);
 }
 
-#cart > .resume{
-    width: 30vw ; 
+#cart>.resume {
+    width: 30vw;
     display: flex;
     flex-direction: column;
     gap: var(--gapXL);
@@ -539,24 +613,24 @@ form > button >img{
     height: fit-content;
 }
 
-#cart > .resume > div{
+#cart>.resume>div {
     display: flex;
     flex-direction: column;
     gap: var(--gapL);
 }
 
-#cart > .resume > div > .buyInfos{
+#cart>.resume>div>.buyInfos {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-#cart > .resume > div > .buyInfos > p:nth-child(2){
+#cart>.resume>div>.buyInfos>p:nth-child(2) {
     color: var(--colorTitre);
 }
 
-#cart > .resume > p{
+#cart>.resume>p {
     padding-top: var(--spaceS);
     border-top: 2px solid var(--colorText);
 }
@@ -576,7 +650,12 @@ form > button >img{
 
 /* init */
 
-#shop, #cart, #about, #how, #buy, #viewItem{
+#shop,
+#cart,
+#about,
+#how,
+#buy,
+#viewItem {
     display: none;
 }
 
@@ -598,7 +677,9 @@ form > button >img{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: var(--spaceM);
+    padding: 0 var(--spaceL) 0 var(--spaceL);
+    
 }
 
 /* module sections */
@@ -627,18 +708,18 @@ form > button >img{
 
 /* ----- Animation ----- */
 
-.transition{
+.transition {
     transition: all 150ms ease-in-out;
     transition: all 150ms ease-in-out;
 }
 
-.afficher{
+.afficher {
     transform: translateX(0px);
     opacity: 100%;
 
 }
 
-.toAfficher{
+.toAfficher {
     transform: translateX(-10vw);
     opacity: 0%;
 }
