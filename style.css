@@ -280,7 +280,7 @@ footer>hgroup {
 
 }
 
-#IA>.conv>.message>button {
+#IA>.conv>.message>.ghost {
     position: relative;
     top: 0px;
     left: -48px;

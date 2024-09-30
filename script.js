@@ -3,7 +3,7 @@
 // random int
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+}
 
 // items mis en vente
 function item(name, img, rate, price, description, tags) {
@@ -227,7 +227,7 @@ function openViewItem() {
         let card = cards[x]
         let image = card.querySelector("img")
         image.addEventListener("click", () => {
-            view.innerHTML = "<div class='item view'>" + card.innerHTML + "</div>"
+            view.innerHTML = "<div class='productSheet'><div class='gallery'><img src='Ressources/Images/dirt.png'><img src='Ressources/Images/dirt.png'><img src='Ressources/Images/dirt.png'></div><div class='productResume'><div><h2>dirt</h2><div><img src='Ressources/Icon/rating/5.svg'><p class='light'>sur 361 avis</p></div><p>150$</p><p>'Lorem ipsum dolor sit amet consectetur. Quis pretium sed senectus sed sit. Morbi risus risus mi id nulla sed. At eu vitae velit lobortis blandit viverra accumsan mi. Eu augue nam sit nisi.'</p></div><div class='parametres'><img src='Ressources/Icon/CashBack.svg' alt=''><p>Remboursable sous 30 jours</p></div><div><img src='Ressources/Icon/Delivery.svg' alt=''><p> Livraison express en 1 semaine</p></div><div><img src='Ressources/Icon/Recycle.svg' alt=''><p> Emballage recyclable</p></div><div class='cartAction'><button class='primary addCart'>payer maintenant<img src='Ressources/Icon/PlusW.svg'></button><button class='secondary addCart'>ajouter au panier<img src='Ressources/Icon/ArrowRightB.svg'></button></div><h3>Avantages</h3><div class='avantages'><div><button class='ghost'>Lorem ipsum dolor sit amet consectetur.<img src='Ressources/Icon/Plus.svg' alt=''></button><p class='light'>'Lorem ipsum dolor sit amet consectetur. Quis pretium sed senectus sed sit. Morbi risus risus mi id nulla sed. At eu vitae velit lobortis blandit viverra accumsan mi. Eu augue nam sit nisi.'</p></div><div><button class='ghost'>Lorem ipsum dolor sit amet consectetur.<img src='Ressources/Icon/Plus.svg' alt=''></button><p class='light'>'Lorem ipsum dolor sit amet consectetur. Quis pretium sed senectus sed sit. Morbi risus risus mi id nulla sed. At eu vitae velit lobortis blandit viverra accumsan mi. Eu augue nam sit nisi.'</p></div><div><button class='ghost'>Lorem ipsum dolor sit amet consectetur.<img src='Ressources/Icon/Plus.svg' alt=''></button><p class='light'>'Lorem ipsum dolor sit amet consectetur. Quis pretium sed senectus sed sit. Morbi risus risus mi id nulla sed. At eu vitae velit lobortis blandit viverra accumsan mi. Eu augue nam sit nisi.'</p></div></div></div></div><div class='shopping recommandation'><h2>Vous aimerez aussi</h2><div class='itemsList'></div></div>"
 
             // navigation vers la page view
             let toHide = ["home", "shop", "cart", "how", "about", "buy"]
@@ -254,6 +254,30 @@ function buttonScroll() {
     })
 }
 
+function buttonNewArticle() {
+    document.querySelector("#IA>.conv>.message>.primary").addEventListener("click", () => {
+
+        document.querySelector("#viewItem").innerHTML = "<div class='item view'></div>"
+
+
+        // navigation vers la page view
+
+        let toHide = ["home", "shop", "cart", "how", "about", "buy"]
+        for (let y = 0; y < toHide.length; y++) {
+            document.querySelector("#" + toHide[y]).setAttribute("style", "display: none;")
+        }
+        document.querySelector("#blank").setAttribute("style", "display: flex;")
+        setTimeout(() => {
+            document.querySelector("#viewItem").setAttribute("style", "display: flex;")
+            document.querySelector("#blank").setAttribute("style", "display: none;")
+        }, timer)
+
+        scrollTo({ left: 0, top: 0, behavior: "smooth" })
+    })
+}
+
+
+
 // ---------- Cart
 // état vide du shop
 // calcul du résumé
@@ -261,7 +285,7 @@ function calcResume() {
     let sousTotal = 0
     let delivery = true
     let TVA = true
-    let total = 0 
+    let total = 0
 
     let articles = document.querySelectorAll(".allInCart > .item")
     // calcul sousTotal
@@ -274,7 +298,7 @@ function calcResume() {
     }
     */
     // calcul livraison
-    if (articles.length < 5){
+    if (articles.length < 5) {
         delivery = getRandomInt(200)
     }
 }
@@ -295,6 +319,13 @@ function IALanding() {
 
     }, 500)
 }
+
+function newArticle() {
+    IATalk("Vente Flash", "Acheter la terre parfaite pour faire pousser les sapins de noël. Seulement 3 articles en stock !", "toNewArticle")
+    buttonNewArticle()
+}
+
+
 // faire parler l'IA
 function IATalk(title = "", message = "", alert = "") {
     let sentence = "<div class='message statePop" + alert + "'><button class='ghost dangerAction'><img src='Ressources/Icon/closeB.svg'></button>"
@@ -305,6 +336,10 @@ function IATalk(title = "", message = "", alert = "") {
 
     if (message !== "") {
         sentence += "<p>" + message + "</p>"
+    }
+
+    if (alert == "toNewArticle") {
+        sentence += "<button class='primary'>En profiter</button>"
     }
 
     sentence += "</div>"
@@ -384,9 +419,10 @@ timerGrow()
 // navigation
 navigate()
 openViewItem()
+buttonScroll()
 
 // ajouter les règles d'apparition de text
-
+newArticle()
 // créer les bugs d'images
 
 //
