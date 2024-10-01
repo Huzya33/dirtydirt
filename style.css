@@ -7,9 +7,10 @@
     --colorTextDark: #CBD5E1;
 
     --colorSuccess: #24964A;
+    --colorSuccessSoft: #dff9e7;
     --colorWarness: #FFF875;
     --colorDanger: #F15060;
-    --colorDangerSoft: #F1506030;
+    --colorDangerSoft: #fdced1;
 
 
     --bgNone: white;
@@ -485,55 +486,89 @@ form>button>img {
 }
 
 /* View Item */
+#viewItem{
+    flex-direction: column;
+    gap:var(--spaceXL);
+}
+
+#viewItem > .shopping > .itemsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spaceM);
+    padding: 0 var(--spaceL) 0 var(--spaceL);
+}
 
 .productSheet {
     display: flex;
     flex-direction: row;
     align-items: top;
     justify-content: space-between;
-    height: 100vh;
+    height: fit-content;
     width: calc(90vw - var(--spaceL)*2);
-    background-color: var(--bgNeutral);
-    padding: var(--spaceL);
 }
 
 .productSheet>.gallery {
-    width: 60%;
+    width: 50%;
+    height: fit-content;
     display: grid;
     grid-gap: var(--spaceM);
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr ;
+}
+
+.productResume>.parametres{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapM);
+}
+.productResume>.parametres>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: var(--gapM);
+    align-items: center;
+    background-color: var(--colorSuccessSoft);
+    padding: var(--gapM);
+}
+.productResume>.parametres>div>p{
+    margin-top: 3px;
+    color: var(--colorTitre);
 }
 
 .gallery>img {
-    border: #020617 solid 1px;
+    width: 100%;
     grid-column: span 1;
     grid-row: span 1;
 }
 
 .gallery>img:nth-child(even) {
-    width: 60%;
-    grid-column: 1 / 4;
-    grid-row: 1 / 3;
+    height: auto;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
 }
 
 .productSheet>.productResume {
     width: 30%;
+    background-color: var(--bgNeutral);
+    padding: var(--spaceL);
+
 }
+
 .productResume{
     display: flex;
     flex-direction: column;
-    gap:var(--gapM);
+    gap:var(--gapXL);
 }
+
 .productResume>.cartAction{
     display: flex;
     flex-direction: row;
     gap: var(--spaceS);
 }
 
-.productResume>.parametres>div{
-    display: flex;
-    flex-direction: row;
+.recommandation{
+    margin-bottom: var(--spaceXL);
 }
 
 /* Cart */
