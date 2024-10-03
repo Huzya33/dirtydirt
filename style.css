@@ -266,7 +266,8 @@ footer>hgroup {
 }
 
 #IA>.conv>.message {
-    background-color: var(--bgNeutral);
+    background-color: var(--bgNone);
+    border: solid 1px var(--bgPrimary);
     padding: 0 var(--gapL) var(--gapL) var(--gapL);
     max-width: calc(128px * 4);
     width: fit-content;
@@ -304,6 +305,10 @@ footer>hgroup {
     transform: translateX(100%);
     opacity: 0%;
     display: none;
+}
+
+.danger{
+    background-color: var(--colorDangerSoft);
 }
 
 
@@ -394,6 +399,10 @@ button {
     padding: 0;
     gap: 8px;
     height: 16px;
+}
+
+.item>.infos>:nth-child(3){
+    color: var(--colorSuccess);
 }
 
 .item>button {
@@ -489,6 +498,7 @@ form>button>img {
 #viewItem{
     flex-direction: column;
     gap:var(--spaceXL);
+    align-items: center;
 }
 
 #viewItem > .shopping > .itemsList {
@@ -578,6 +588,7 @@ form>button>img {
 
 .productResume>.mainInfos>h2{
     font-size: 64px;
+    line-height: 70px;
 }
 
 .productResume>.mainInfos>div{
@@ -699,6 +710,7 @@ form>button>img {
 
 .inCart>.infos>h2 {
     width: 20vw;
+    font-size: 18px;
 }
 
 .inCart>.infos>p {
@@ -736,7 +748,7 @@ form>button>img {
     justify-content: space-between;
 }
 
-#cart>.resume>div>.buyInfos>p:nth-child(2) {
+#cart>.resume>div>.buyInfos > :nth-child(2) {
     color: var(--colorTitre);
 }
 
@@ -744,6 +756,7 @@ form>button>img {
     padding-top: var(--spaceS);
     border-top: 2px solid var(--colorText);
 }
+
 
 
 
@@ -832,4 +845,31 @@ form>button>img {
 .toAfficher {
     transform: translateX(-10vw);
     opacity: 0%;
+}
+
+/* popUp */
+
+.popUp{
+    background-color: var(--colorDangerSoft);
+    padding: var(--spaceM);
+    display: flex;
+    flex-direction: column;
+    gap : var(--gapL);
+    position: fixed;
+    margin: auto;
+    border-radius: var(--radS);
+    align-items: center;
+    border: var(--colorDanger) 1px solid;
+}
+
+.popUp > h3{
+    font-size: 32px;
+}
+.popUp > p{
+    color: var(--colorDanger);
+    text-align: center;
+    line-height: 24px;
+}
+.popUp > button{
+    background-color: var(--colorDanger);
 }
