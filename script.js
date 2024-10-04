@@ -387,9 +387,9 @@ function IALanding() {
 }
 
 function newArticle() {
-    setTimeout( () => {
-    document.querySelector("body").innerHTML += "<div class='popUp toNewArticle'></button><h3>Vente Flash de terre d'Eden pure</h3><p>Acheter la terre parfaite pour faire pousser les sapins de noël.</br><strong>Seulement 3 articles en stock !</strong></p><button id='buttonNewArticle' class='primary'>En profiter</button></div>"
-    buttonNewArticle()
+    setTimeout(() => {
+        document.querySelector("body").innerHTML += "<div class='popUp toNewArticle'></button><h3>Vente Flash de terre d'Eden pure</h3><p>Acheter la terre parfaite pour faire pousser les sapins de noël.</br><strong>Seulement 3 articles en stock !</strong></p><button id='buttonNewArticle' class='primary'>En profiter</button></div>"
+        buttonNewArticle()
     }, 5000)
 }
 
@@ -481,70 +481,201 @@ function bug() {
         document.addEventListener("scroll", () => {
             for (let x = 0; x < divs.length; x++) {
                 divs[x].setAttribute("style", "background-color: var(--colorDanger)")
-            } })
+            }
+        })
     }, 5000)
 
     setTimeout(() => {
-        IATalk("Merci de votre achat", "Le montant et le compte débités vous sera indiqué dans votre boite mail !", "danger")
     }, 5000)
 
-    changeColor()
-    changePrice()
-    floutter()
-    imageBug(2)
+
+
+    setTimeout(() => {
+        //
+        changeColor()
+
+        setTimeout(() => {
+            //
+            changeAvantage()
+
+            setTimeout(() => {
+                changePrice()
+                document.querySelector("#blank").setAttribute("style", "display: flex;")
+
+                setTimeout(() => {
+                    document.querySelector("#blank").setAttribute("style", "display: none;")
+                    document.querySelector(".mainInfos>h2").innerHTML = "<h2>Bonjour Greg ?</h2>"
+
+                    setTimeout(() => {
+                        document.querySelector(".mainInfos>h2").innerHTML = "<h2>Greeeeeéééeèeggqqgggg</h2>"
+
+                        setTimeout(() => {
+                            document.querySelector("html").style.backgroundColor = "black"
+                            document.querySelector(".mainInfos>h2").innerHTML = "<h2>Terre d'Éden Pure</h2>"
+                            document.querySelector("header").style.backgroundColor = "black"
+
+                            setTimeout(() => {
+                                changePrice()
+                                document.querySelector("html").style.backgroundColor = "white"
+
+                                setTimeout(() => {
+                                    changeColor2()
+
+
+                                    setTimeout(() => {
+                                        document.querySelector("header").style.backgroundColor = "white"
+
+
+
+                                        setTimeout(() => {
+                                            floutter()
+
+
+                                            setTimeout(() => {
+                                                changePrice()
+                                                imageBug(1)
+                                                document.querySelector("html").style.backgroundColor = "black"
+                                                document.querySelector("header").style.backgroundColor = "black"
+
+
+                                                IATalk("Merci de votre achat", "Le montant et le compte débités vous sera indiqué dans votre boite mail !", "danger")
+
+                                                setTimeout(() => {
+                                                    changeText(document.querySelector("hgroup>p"))
+
+                                                    setTimeout(() => {
+                                                        document.querySelector("html").style.backgroundColor = "white"
+
+                                                        setTimeout(() => {
+
+                                                            setTimeout(() => {
+                                                                changeText(document.querySelector(".mainInfos>h2"))
+
+
+                                                                setTimeout(() => {
+                                                                    document.querySelector("html").style.backgroundColor = "red"
+
+                                                                    setTimeout(() => {
+
+                                                                        setTimeout(() => {
+                                                                            IATalk("Merci de votre achat", "Le montant et le compte débités vous sera indiqué dans votre boite mail !", "danger")
+
+                                                                            setTimeout(() => {
+                                                                                //
+                                                                                IATalk("Merci de votre achat", "Le montant et le compte débités vous sera indiqué dans votre boite mail !", "danger")
+                                                                                popUpStop()
+
+                                                                                setTimeout(() => {
+                                                                                    document.querySelector("#blank").setAttribute("style", "display: flex;")
+                                                                                    document.querySelector("#viewItem").setAttribute("style", "display: none;")
+
+                                                                                }, 500)
+                                                                            }, 500)
+                                                                        }, 500)
+                                                                    }, 1000)
+                                                                }, 1000)
+                                                            }, 1500)
+                                                        }, 1500)
+                                                    }, 1500)
+                                                }, 2000)
+                                            }, 2000)
+                                        }, 2000)
+                                    }, 2000)
+                                }, 2000)
+                            }, 2000)
+                        }, 2000)
+                    }, 2000)
+                }, 2000)
+            }, 2000)
+        }, 2000)
+    }, 2000)
+
+
+
     fontBug()
-    // popUpStop()
     bgChange("#000000")
+    hoverSlide()
 
 
 
-
+    //
+}
+function changeText(section) {
+    section.innerHTML = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna. Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</p>"
 }
 
-function changeColor(color){
+function hoverSlide() {
+    let section = document.querySelector(".productResume")
+    section.addEventListener("over", () => {
+        section.setAttribute("style", "transform: translateX(1000)")
+    })
+}
+function changeColor() {
     setTimeout(() => {
         let divs = document.querySelectorAll(".parametres>div")
         document.addEventListener("scroll", () => {
             for (let x = 0; x < divs.length; x++) {
-                if (divs[x].style.backgroundColor = "var(--colorSuccessSoft)"){divs[x].setAttribute("style", "background-color: var(--colorDangerSoft)")}
-                else {divs[x].setAttribute("style", "background-color: var(--colorSucessSoft)")}
+                if (divs[x].style.backgroundColor = "var(--colorSuccessSoft)") { divs[x].setAttribute("style", "background-color: var(--colorDangerSoft)") }
+                else { divs[x].setAttribute("style", "background-color: var(--colorSucessSoft)") }
 
-            } })
+            }
+        })
     }, 5000)
 }
 
-function changePrice(){
-    document.querySelector(".mainInfos>div>p").innerHTML = getRandomInt(1000) + ".99 $"
+function changeAvantage() {
+    let divs = document.querySelectorAll(".avantages>div")
+    for (let x = 0; x < divs.length; x++) {
+        divs[x].innerHTML = "<p>Iconnu</p>"
+    }
 }
 
-function floutter(){
-    let imgs= document.querySelectorAll(".gallery>img")
-    for(let x=0; x<imgs.length; x++){
+function changeColor2() {
+    setTimeout(() => {
+        let divs = document.querySelectorAll("button")
+        document.addEventListener("scroll", () => {
+            for (let x = 0; x < divs.length; x++) {
+                if (divs[x].style.backgroundColor = "var(--colorSuccessSoft)") { divs[x].setAttribute("style", "background-color: var(--colorDangerSoft)") }
+                else { divs[x].setAttribute("style", "background-color: var(--colorSucessSoft)") }
+            }
+        })
+    }, 5000)
+}
+
+
+function changePrice() {
+    document.querySelector(".mainInfos>div>p").innerHTML = getRandomInt(1000) + ".99 $"
+    setTimeout("changePrice()", 3000)
+}
+
+function floutter() {
+    let imgs = document.querySelectorAll(".gallery>img")
+    for (let x = 0; x < imgs.length; x++) {
         imgs[x].setAttribute("style", "filter: blur(8px);")
     }
 }
 
-function  imageBug(n){
-    let imgs= document.querySelectorAll(".gallery>img")
+function imageBug(n) {
+    let imgs = document.querySelectorAll(".gallery>img")
     imgs[n].src = "non.png"
     imgs[n].setAttribute("style", "filter: blur(0px);")
 }
 
-function fontBug(){
+function fontBug() {
     document.querySelector("*").style.fontFamilly = "Time"
 }
 
-function popUpStop(){
-    document.querySelector(".popUp").innerHTML = "<h3>La vente Flash est terminée</h3><p>vous avez acheter tous les articles, nous vous conseillons de surveiller votre compte en banque.</br><strong>Il est préférable d'écouler la terre le plus rappidement possible.</strong></p><button id='buttonNewArticle' class='primary'>En profiter</button>"
+function popUpStop() {
+    document.querySelector(".popUp").innerHTML = "<h3>La vente Flash est terminée</h3><p>vous avez acheter tous les articles, nous vous conseillons de surveiller votre compte en banque.</br><strong>Il est préférable d'écouler la terre le plus rappidement possible.</strong></p>"
     document.querySelector(".popUp").setAttribute("style", "display: flex;")
-    document.querySelector(".productSheet").setAttribute("style","filter: blur(128px);")
-    document.querySelector(".recommandation").setAttribute("style","filter: blur(128px);")
+    document.querySelector(".productSheet").setAttribute("style", "filter: blur(128px);")
+    document.querySelector(".recommandation").setAttribute("style", "filter: blur(128px);")
 
 
 }
 
-function bgChange(color){
-    document.querySelector("#viewItem").setAttribute("style","backgroundColor: "+ color)
+function bgChange(color) {
+    document.querySelector("#viewItem").setAttribute("style", "backgroundColor: " + color)
 }
 
 
